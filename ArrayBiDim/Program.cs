@@ -8,10 +8,14 @@ namespace ArrayBiDim
         {
             float somadamedia = 0;
             float soma = 0;
+
             Console.WriteLine("Gibe horizontal");
-            int x = Console.ReadLine();
+            string str = Console.ReadLine();
+            float x = float.Parse(str);
+
             Console.WriteLine("Gibe vertical");
-            int y = Console.ReadLine();
+            str = Console.ReadLine();
+            float y = float.Parse(str);
 
             float [,] array = new float [x,y];
             
@@ -20,15 +24,18 @@ namespace ArrayBiDim
                 for(int j = 0; j < array.GetLength(1); j++)
                 {
                     Console.WriteLine("Gibe num");
-                    float num = Console.ReadLine();
+                    str = Console.ReadLine();
+                    float num = float.Parse(str);
+
                     array[i,j] = num;
                     soma += num;
                 }
-                somadamedia += soma/array.GetLength(1)
-                Console.WriteLine($"Media da linha e {soma/array.GetLength(1)}");
-                soma = 0
+                somadamedia += soma/array.GetLength(1);
+                Console.WriteLine($"Media da linha = {soma/array.GetLength(1)}");
+                soma = 0;
             }
 
+            Console.WriteLine($"Soma das medias = {somadamedia}");
 
         }
     }
