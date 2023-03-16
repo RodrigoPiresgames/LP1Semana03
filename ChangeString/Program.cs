@@ -15,7 +15,7 @@ namespace ChangeString
             foreach (char c in words)
             {
                 if (removechar == c)
-                    break;
+                    continue;
                 else
                     Console.Write($"{c}");
             }
