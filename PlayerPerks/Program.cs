@@ -62,6 +62,8 @@ namespace PlayerPerks
                 }
             }
 
+            Console.WriteLine($"{player}");
+
             if (((player & PPerks.DoubleJump) == PPerks.DoubleJump) & ((player & PPerks.Stealth) == PPerks.Stealth))
             {
                 Console.WriteLine("Silent jumper!");
@@ -72,7 +74,7 @@ namespace PlayerPerks
                 Console.WriteLine("Not gonna make it");
             }
 
-            if ((player & PPerks.Nothing) == PPerks.Nothing)
+            if (player == PPerks.Nothing)
             {
                 Console.WriteLine("No perks at all!");
             }

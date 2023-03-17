@@ -5,7 +5,7 @@ namespace PlayerPerks
     [Flags]
     enum PPerks
     {
-        Nothing = 1 << 0,
+        Nothing = 0,
         Waterbreathing = 1 << 1,
         AutoHeal = 1 << 2,
         Stealth = 1 << 3,
