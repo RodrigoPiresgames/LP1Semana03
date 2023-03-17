@@ -6,27 +6,76 @@ namespace PlayerPerks
     {
         static void Main(string[] args)
         {
-            PPerks player = new PPerks();
+            PPerks player = PPerks.Nothing;
 
-            Console.WriteLine("Gimme code of actions");
-            string str = Console.ReadLine();
+            string str = args[0];
 
             foreach (char command in str)
             {
-                switch (command)
+                if (command != 'w' && command != 'a' && command != 's' && command != 'd')
                 {
-                    case "w"
+                    Console.WriteLine("Unknown perk!");
+                    break;
+                }
 
-                    case "a"
+                else
+                {
+                    switch (command)
+                    {
+                        case 'w':
+                            if ((player & PPerks.Waterbreathing) == PPerks.Waterbreathing)
+                            {
+                                player &= ~PPerks.Waterbreathing;
+                                break;
+                            }
+                            player |= PPerks.Waterbreathing;
+                            break;
 
-                    case "s"
+                        case 'a':
+                            if ((player & PPerks.AutoHeal) == PPerks.AutoHeal)
+                            {
+                                player &= ~PPerks.AutoHeal;
+                                break;
+                            }
+                            player |= PPerks.AutoHeal;
+                            break;
 
-                    case "d"
+                        case 's':
+                            if ((player & PPerks.Stealth) == PPerks.Stealth)
+                            {
+                                player &= ~PPerks.Stealth;
+                                break;
+                            }
+                            player |= PPerks.Stealth;
+                            break;
 
+                        case 'd':
+                            if ((player & PPerks.DoubleJump) == PPerks.DoubleJump)
+                            {
+                                player &= ~PPerks.DoubleJump;
+                                break;
+                            }
+                            player |= PPerks.DoubleJump;
+                            break;
 
+                    }
                 }
             }
 
+            if (((player & PPerks.DoubleJump) == PPerks.DoubleJump) & ((player & PPerks.Stealth) == PPerks.Stealth))
+            {
+                Console.WriteLine("Silent jumper!");
+            }
+                
+            if ((player & PPerks.AutoHeal) != PPerks.AutoHeal)
+            {
+                Console.WriteLine("Not gonna make it");
+            }
+
+            if ((player & PPerks.Nothing) == PPerks.Nothing)
+            {
+                Console.WriteLine("No perks at all!");
+            }
         }
     }
 }
