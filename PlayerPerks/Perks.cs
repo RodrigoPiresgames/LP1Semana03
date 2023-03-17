@@ -1,13 +1,14 @@
 ﻿using System;
 
-public class Perks
+namespace PlayerPerks
 {
     [Flags]
-    enum WoWRoles
+    enum PPerks
     {
-        Tank = 1 << 0, // 1
-        Healer = 1 << 1, // 2
-        Damage = 1 << 2 // 4
+        waterbreathing = 1 << 0,
+        AutoHeal = 1 << 1,
+        Stealth = 1 << 2,
+        DoubleJump = 1 << 3
     };
 
 }
