@@ -31,11 +31,11 @@ namespace TrapAnalyzer
             {
                 if(arg != args[0])
                 {
-                    toGearUp &= Enum.Parse<PlayerGear>(arg);
-                    toGearUp &= ~PlayerGear.None;
+                    toGearUp = Enum.Parse<PlayerGear>(arg);
                 }
             }
 
+            //Console.WriteLine($"{toGearUp}");
             return toGearUp;
 
         }
