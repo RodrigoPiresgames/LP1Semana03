@@ -51,7 +51,7 @@ namespace TrapAnalyzer
             if ((gear & PlayerGear.None)== PlayerGear.None)
             {
 
-                Console.WriteLine("no gear");
+                //Console.WriteLine("no gear");
 
                 return false;
             }
