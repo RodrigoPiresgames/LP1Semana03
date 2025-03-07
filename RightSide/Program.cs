@@ -6,7 +6,20 @@ namespace RightSide
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello LP1!");
+            foreach(string arg in args)
+            {
+                if (arg.Length > 3)
+                {
+                    if(arg.Length >= 8)
+                    {
+                        Console.WriteLine("[EARLY STOP]");
+                        break;
+                    }
+
+                    Console.WriteLine($"{arg}");
+
+                }
+            }
         }
     }
 }
