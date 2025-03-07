@@ -25,9 +25,18 @@ namespace TrapAnalyzer
         /// <returns>The player gear.</returns>
         private static PlayerGear ParseGear(string[] args)
         {
-            // ////////// //
-            // CHANGE ME! //
-            // ////////// //
+            PlayerGear toGearUp = PlayerGear.None;
+            foreach (string arg in args)
+            {
+                if(arg != args[0])
+                {
+                    toGearUp &= Enum.Parse<PlayerGear>(arg);
+                    toGearUp &= ~PlayerGear.None;
+                }
+            }
+
+            return toGearUp;
+
         }
 
         /// <summary>
