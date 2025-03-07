@@ -26,6 +26,7 @@ namespace TrapAnalyzer
         private static PlayerGear ParseGear(string[] args)
         {
             PlayerGear toGearUp = PlayerGear.None;
+
             foreach (string arg in args)
             {
                 if(arg != args[0])
@@ -47,34 +48,37 @@ namespace TrapAnalyzer
         /// <returns>Wether the player survived the trap or not.</returns>
         private static bool CanSurviveTrap(TrapType trap, PlayerGear gear)
         {
-            if (gear == PlayerGear.None)
+            if ((gear & PlayerGear.None)== PlayerGear.None)
             {
+
+                Console.WriteLine("no gear");
+
                 return false;
             }
-            else if(trap == TrapType.FallingRocks)
+            if(trap == TrapType.FallingRocks)
             {
-                if(gear == PlayerGear.Helmet)
+                if((gear & PlayerGear.Helmet)== PlayerGear.Helmet)
                     return true;
                 
                 return false;
             }
-            else if(trap == TrapType.SpinningBlades)
+            if(trap == TrapType.SpinningBlades)
             {
-                if(gear == PlayerGear.Shield)
+                if((gear & PlayerGear.Shield) == PlayerGear.Shield)
                     return true;
                 
                 return false;
             }
-            else if(trap == TrapType.LavaPit)
+            if(trap == TrapType.LavaPit)
             {
-                if(gear == PlayerGear.Boots)
+                if((gear & PlayerGear.Boots) == PlayerGear.Boots)
                     return true;
                 
                 return false;
             }
-            else if(trap == TrapType.PoisonGas)
+            if(trap == TrapType.PoisonGas)
             {
-                if(gear == PlayerGear.Helmet || gear == PlayerGear.Shield)
+                if((gear & PlayerGear.Helmet) == PlayerGear.Helmet && (gear & PlayerGear.Shield) == PlayerGear.Shield)
                     return true;
                 
                 return false;
